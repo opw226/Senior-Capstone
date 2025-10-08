@@ -1,0 +1,2 @@
+temperatureSensor.v,verilog,xil_defaultlib,../../../../SeniorCapstone.gen/sources_1/ip/temperatureSensor/temperatureSensor.v,
+glbl.v,Verilog,xil_defaultlib,glbl.v

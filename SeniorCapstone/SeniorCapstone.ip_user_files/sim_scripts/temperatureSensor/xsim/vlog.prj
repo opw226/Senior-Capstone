@@ -1,0 +1,7 @@
+verilog xil_defaultlib  \
+"../../../../SeniorCapstone.gen/sources_1/ip/temperatureSensor/temperatureSensor.v" \
+
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort
