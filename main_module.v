@@ -41,5 +41,6 @@ module main_module(input CLK, input [2:0] SWITCH, output [2:0] MOTOR);
 assign MOTOR[0] = control[0];
 assign MOTOR[1] = control[1];
 assign MOTOR[2] = (pulseLength>counter) ? 1'b1:1'b0;
+//assign MOTOR[2] = (control != 3'b000) ? 1'b1 : 1'b0;
     
 endmodule
