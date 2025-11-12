@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-module main_module(input CLK, input [2:0] SWITCH, output [2:0] MOTOR);
+module main_module(input clk, input [2:0] SWITCH, output [2:0] MOTOR);
 
     reg [2:0] control = 3'b000;
     
@@ -12,7 +12,7 @@ module main_module(input CLK, input [2:0] SWITCH, output [2:0] MOTOR);
     
     integer counter = 0;
     
-    always @(posedge CLK)
+    always @(posedge clk)
     begin
         if (counter < periodLength) counter <=counter+1;
         else counter<=0;
