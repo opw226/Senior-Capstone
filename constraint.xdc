@@ -5,32 +5,32 @@ set_property IOSTANDARD LVCMOS33 [get_ports {clk}];
 
 ## motor pins -Right on JD
 ## IN3
-set_property -dict {PACKAGE_PIN H4 IOSTANDARD LVCMOS33} [get_ports {MOTOR_R[0]}];
+set_property -dict {PACKAGE_PIN H4 IOSTANDARD LVCMOS33} [get_ports {MOTOR_RF[0]}];
 ## IN4
-set_property -dict {PACKAGE_PIN H1 IOSTANDARD LVCMOS33} [get_ports {MOTOR_R[1]}];
+set_property -dict {PACKAGE_PIN H1 IOSTANDARD LVCMOS33} [get_ports {MOTOR_RF[1]}];
 ## ENB
-set_property -dict {PACKAGE_PIN G1 IOSTANDARD LVCMOS33} [get_ports {MOTOR_R[2]}];
+set_property -dict {PACKAGE_PIN G1 IOSTANDARD LVCMOS33} [get_ports {MOTOR_RF[2]}];
 ## IN1
-set_property -dict {PACKAGE_PIN G3 IOSTANDARD LVCMOS33} [get_ports {MOTOR_R[0]}];
+set_property -dict {PACKAGE_PIN G3 IOSTANDARD LVCMOS33} [get_ports {MOTOR_RB[0]}];
 ## IN2
-set_property -dict {PACKAGE_PIN H2 IOSTANDARD LVCMOS33} [get_ports {MOTOR_R[1]}];
+set_property -dict {PACKAGE_PIN H2 IOSTANDARD LVCMOS33} [get_ports {MOTOR_RB[1]}];
 ## ENA
-set_property -dict {PACKAGE_PIN G4 IOSTANDARD LVCMOS33} [get_ports {MOTOR_R[2]}];
+set_property -dict {PACKAGE_PIN G4 IOSTANDARD LVCMOS33} [get_ports {MOTOR_RB[2]}];
 
 
 ## motor pins -Left on JC
 ## IN3
-set_property -dict {PACKAGE_PIN K1 IOSTANDARD LVCMOS33} [get_ports {MOTOR_L[0]}];
+set_property -dict {PACKAGE_PIN K1 IOSTANDARD LVCMOS33} [get_ports {MOTOR_LF[0]}];
 ## IN4
-set_property -dict {PACKAGE_PIN F6 IOSTANDARD LVCMOS33} [get_ports {MOTOR_L[1]}];
+set_property -dict {PACKAGE_PIN F6 IOSTANDARD LVCMOS33} [get_ports {MOTOR_LF[1]}];
 ## ENB
-set_property -dict {PACKAGE_PIN J2 IOSTANDARD LVCMOS33} [get_ports {MOTOR_L[2]}];
+set_property -dict {PACKAGE_PIN J2 IOSTANDARD LVCMOS33} [get_ports {MOTOR_LF[2]}];
 ## IN3
-set_property -dict {PACKAGE_PIN G6 IOSTANDARD LVCMOS33} [get_ports {MOTOR_L[0]}];
+set_property -dict {PACKAGE_PIN G6 IOSTANDARD LVCMOS33} [get_ports {MOTOR_LB[0]}];
 ## IN4
-set_property -dict {PACKAGE_PIN E7 IOSTANDARD LVCMOS33} [get_ports {MOTOR_L[1]}];
+set_property -dict {PACKAGE_PIN E7 IOSTANDARD LVCMOS33} [get_ports {MOTOR_LB[1]}];
 ## ENB
-set_property -dict {PACKAGE_PIN J3 IOSTANDARD LVCMOS33} [get_ports {MOTOR_L[2]}];
+set_property -dict {PACKAGE_PIN J3 IOSTANDARD LVCMOS33} [get_ports {MOTOR_LB[2]}];
 
 
 ## switches for controlling the motor

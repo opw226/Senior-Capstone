@@ -12,62 +12,115 @@ module top_car_module #(
     input wire dir_switch_r,
     input wire dir_switch_l,
     input wire reed_in,
-    output wire [2:0] MOTOR_R,
-    output wire [2:0] MOTOR_L,
+    output wire [2:0] MOTOR_RF,
+    output wire [2:0] MOTOR_RB,
+    output wire [2:0] MOTOR_LF,
+    output wire [2:0] MOTOR_LB,
     output wire led0
     );
     
     wire rst = 1'b0;
-    wire motor_r_in3;
-    wire motor_r_in4;
-    wire motor_r_enb;
+    wire motor_rf_in3;
+    wire motor_rf_in4;
+    wire motor_rf_enb;
     
     motor_encoder_top #(
         .DEBOUNCE_CYCLES(DEBOUNCE_CYCLES),
         .PWM_PERIOD(PWM_PERIOD),
         .MAX_POSITION(MAX_POSITION),
         .MIN_POSITION(MIN_POSITION)
-    ) motor_right_ctrl (
+    ) motor_right_front (
         .clk(clk),
         .rst(rst),
         .enc_a(enc_a),
         .enc_b(enc_b),
         .enc_btn_n(enc_btn_n),
         .dir_switch(dir_switch_r),
-        .motor_in3(motor_r_in3),
-        .motor_in4(motor_r_in4),
-        .motor_enb(motor_r_enb)
+        .motor_in3(motor_rf_in3),
+        .motor_in4(motor_rf_in4),
+        .motor_enb(motor_rf_enb)
     );
     
-    assign MOTOR_R[0] = motor_r_in3;
-    assign MOTOR_R[1] = motor_r_in4;
-    assign MOTOR_R[2] = motor_r_enb;
+    assign MOTOR_RF[0] = motor_rf_in3;
+    assign MOTOR_RF[1] = motor_rf_in4;
+    assign MOTOR_RF[2] = motor_rf_enb;
     
     
-    wire motor_l_in3;
-    wire motor_l_in4;
-    wire motor_l_enb;
+    wire motor_rb_in1;
+    wire motor_rb_in2;
+    wire motor_rb_ena;
     
     motor_encoder_top #(
         .DEBOUNCE_CYCLES(DEBOUNCE_CYCLES),
         .PWM_PERIOD(PWM_PERIOD),
         .MAX_POSITION(MAX_POSITION),
         .MIN_POSITION(MIN_POSITION)
-    ) motor_left_ctrl (
+    ) motor_right_back (
+        .clk(clk),
+        .rst(rst),
+        .enc_a(enc_a),
+        .enc_b(enc_b),
+        .enc_btn_n(enc_btn_n),
+        .dir_switch(dir_switch_r),
+        .motor_in3(motor_rb_in1),
+        .motor_in4(motor_rb_in2),
+        .motor_enb(motor_rb_ena)
+    );
+    
+    assign MOTOR_RB[0] = motor_rb_in1;
+    assign MOTOR_RB[1] = motor_rb_in2;
+    assign MOTOR_RB[2] = motor_rb_ena;
+    
+    
+    wire motor_lf_in1;
+    wire motor_lf_in2;
+    wire motor_lf_ena;
+    
+    motor_encoder_top #(
+        .DEBOUNCE_CYCLES(DEBOUNCE_CYCLES),
+        .PWM_PERIOD(PWM_PERIOD),
+        .MAX_POSITION(MAX_POSITION),
+        .MIN_POSITION(MIN_POSITION)
+    ) motor_left_front (
         .clk(clk),
         .rst(rst),
         .enc_a(enc_a),
         .enc_b(enc_b),
         .enc_btn_n(enc_btn_n),
         .dir_switch(dir_switch_l),
-        .motor_in3(motor_l_in3),
-        .motor_in4(motor_l_in4),
-        .motor_enb(motor_l_enb)
+        .motor_in3(motor_lf_in1),
+        .motor_in4(motor_lf_in2),
+        .motor_enb(motor_lf_ena)
     );
     
-    assign MOTOR_L[0] = motor_l_in3;
-    assign MOTOR_L[1] = motor_l_in4;
-    assign MOTOR_L[2] = motor_l_enb;
+    assign MOTOR_LF[0] = motor_lf_in1;
+    assign MOTOR_LF[1] = motor_lf_in2;
+    assign MOTOR_LF[2] = motor_lf_ena;
+    
+    wire motor_lb_in3;
+    wire motor_lb_in4;
+    wire motor_lb_enb;
+    
+    motor_encoder_top #(
+        .DEBOUNCE_CYCLES(DEBOUNCE_CYCLES),
+        .PWM_PERIOD(PWM_PERIOD),
+        .MAX_POSITION(MAX_POSITION),
+        .MIN_POSITION(MIN_POSITION)
+    ) motor_left_back (
+        .clk(clk),
+        .rst(rst),
+        .enc_a(enc_a),
+        .enc_b(enc_b),
+        .enc_btn_n(enc_btn_n),
+        .dir_switch(dir_switch_l),
+        .motor_in3(motor_lb_in3),
+        .motor_in4(motor_lb_in4),
+        .motor_enb(motor_lb_enb)
+    );
+    
+    assign MOTOR_LB[0] = motor_lb_in3;
+    assign MOTOR_LB[1] = motor_lb_in4;
+    assign MOTOR_LB[2] = motor_lb_enb;
     
     reed_switch_top u_reed(
     .clk(clk),
